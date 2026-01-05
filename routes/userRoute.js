@@ -4,8 +4,8 @@ const { addStudent, getStudent, editDatabyid, deleteStudent, updateStudent } = r
 
 router.post("/", addStudent)
 router.get("/", getStudent)
-router.put("/:id", editDatabyid)
+router.put("/:id", updateStudent)
 router.delete("/:id", deleteStudent)
-router.patch("/:id", updateStudent)
+router.patch("/:id", editDatabyid)
 
 module.exports = router;

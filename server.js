@@ -14,12 +14,14 @@ mongoose.connect("mongodb://localhost:27017/student")
     })
 
 
-const userRouter = require("./routes/userRoute.js")
+const userRouter = require("./routes/userRoute.js");
+const authRouter = require("./routes/authRoute.js")
+app.use("/auth", authRouter)
 app.use("/students", userRouter)
 
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+app.listen(4000, () => {
+    console.log("Server is running on port 4000");
 })
 
 

@@ -19,17 +19,21 @@ const addStudent = async (req, res) => {
 //read student
 const getStudent = async (req, res) => {
     try {
-        const student = await Student.find();
+        const student = await Student.find(req.query);
         res.json(student)
     } catch (error) {
         console.log("error" + error)
     }
 }
 
-//editbyidput
-const editDatabyid = async (req, res) => {
+//editbyid
+const updateStudent = async (req, res) => {
     try {
-        const student = await Student.findByIdAndUpdate(req.params.id, req.body);
+        const student = await Student.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
         res.json(student)
     } catch (error) {
         console.log("error " + error)
@@ -38,7 +42,7 @@ const editDatabyid = async (req, res) => {
 
 
 //edit with patch
-const updateStudent = async (req, res) => {
+const editDatabyid = async (req, res) => {
     try {
         const student = await Student.findByIdAndUpdate(
             req.params.id,

@@ -21,7 +21,7 @@ const getStudent = async (req, res) => {
     try {
         const student = await Student.find();
         res.json(student)
-    } catch (error){
+    } catch (error) {
         console.log("error" + error)
     }
 }
@@ -30,9 +30,9 @@ const getStudent = async (req, res) => {
 const editDatabyid = async (req, res) => {
     try {
         const student = await Student.findByIdAndUpdate(req.params.id, req.body);
-        res.json(student);
+        res.json(student)
     } catch (error) {
-        console.log("error" + error)
+        console.log("error " + error)
     }
 }
 

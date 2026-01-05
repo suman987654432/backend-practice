@@ -6,11 +6,12 @@ const mongoose = require("mongoose")
 app.use(express.json())
 
 //connecting to mongodb
-mongoose.connect("mongodb://localhost:27017/student").then(() => {
-    console.log("Mongodb connected")
-}).catch((err) => {
-    console.log("Error" + err)
-})
+mongoose.connect("mongodb://localhost:27017/student")
+    .then(() => {
+        console.log("Mongodb connected")
+    }).catch((err) => {
+        console.log("Error" + err)
+    })
 
 
 const userRouter = require("./routes/userRoute.js")

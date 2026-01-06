@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose")
-
+const userRouter = require("./routes/userRoute.js");
+const authRouter = require("./routes/authRoute.js")
 //middleware
 app.use(express.json())
 
@@ -13,9 +14,6 @@ mongoose.connect("mongodb://localhost:27017/student")
         console.log("Error" + err)
     })
 
-
-const userRouter = require("./routes/userRoute.js");
-const authRouter = require("./routes/authRoute.js")
 app.use("/auth", authRouter)
 app.use("/students", userRouter)
 

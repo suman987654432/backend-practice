@@ -26,6 +26,17 @@ const getStudent = async (req, res) => {
     }
 }
 
+//read by id
+
+const getStudentbyid = async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id);
+        res.json(student);
+    } catch (error) {
+        console.log("error" + error)
+    }
+}
+
 //editbyid
 const updateStudent = async (req, res) => {
     try {
@@ -69,6 +80,7 @@ const deleteStudent = async (req, res) => {
 module.exports = {
     addStudent,
     getStudent,
+    getStudentbyid,
     editDatabyid,
     deleteStudent,
     updateStudent,

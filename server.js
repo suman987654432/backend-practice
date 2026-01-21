@@ -1,11 +1,12 @@
 const express = require("express");
+const cors=require("cors")
 const app = express();
 const mongoose = require("mongoose")
 const userRouter = require("./routes/userRoute.js");
 const authRouter = require("./routes/authRoute.js")
 //middleware
 app.use(express.json())
-
+app.use(cors())
 //connecting to mongodb
 mongoose.connect("mongodb://localhost:27017/student")
     .then(() => {
